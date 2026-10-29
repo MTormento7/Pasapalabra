@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#141926">
+  <title>Pasapalabra</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main class="app">
+    <section id="config-screen" class="config-screen">
+      <form id="config-form" class="config-card">
+        <h1>PASAPALABRA</h1>
+        <p class="subtitle">Configura los dos roscos antes de empezar</p>
+        <div class="names-grid">
+          <label class="blue-label" for="name-blue">Participante azul</label>
+          <label class="orange-label" for="name-orange">Participante naranja</label>
+          <input id="name-blue" value="Equipo azul" maxlength="30" autocomplete="off">
+          <input id="name-orange" value="Equipo naranja" maxlength="30" autocomplete="off">
+        </div>
+        <h2>Letras incluidas en ambos roscos</h2>
+        <div class="letters-options">
+          <label><input id="include-n" type="checkbox" checked> Incluir Ñ</label>
+          <label><input id="include-w" type="checkbox" checked> Incluir W</label>
+          <label><input id="include-x" type="checkbox" checked> Incluir X</label>
+          <label><input id="include-y" type="checkbox" checked> Incluir Y</label>
+          <label><input id="include-z" type="checkbox" checked> Incluir Z</label>
+        </div>
+        <p class="note">El resto de las letras se incluye siempre.</p>
+        <button class="primary-button" type="submit">COMENZAR PARTIDA</button>
+      </form>
+    </section>
+
+    <section id="game-screen" class="game-screen" hidden>
+      <header class="topbar">
+        <div id="turn-label" class="turn-label">Turno: —</div>
+        <div id="scoreboard" class="scoreboard"></div>
+        <nav class="toolbar" aria-label="Acciones de partida">
+          <button id="fullscreen-button" type="button">Pantalla completa</button>
+          <button id="restart-button" type="button">Reiniciar</button>
+          <button id="config-button" type="button">Configuración</button>
+        </nav>
+      </header>
+      <div id="game-area" class="game-area">
+        <div id="active-rosco" class="rosco active-rosco" aria-label="Rosco activo"></div>
+        <div id="inactive-rosco" class="rosco inactive-rosco" aria-label="Rosco del otro participante"></div>
+      </div>
+      <footer class="help-bar">
+        <span><kbd>ESPACIO</kbd> Pasapalabra</span>
+        <span><kbd>INTRO</kbd> Correcta</span>
+        <span><kbd>X</kbd> Incorrecta</span>
+        <span><kbd>ESC</kbd> Salir de pantalla completa</span>
+      </footer>
+    </section>
+  </main>
+
+  <dialog id="confirm-dialog" class="confirm-dialog">
+    <p id="dialog-message">¿Continuar?</p>
+    <div class="dialog-actions">
+      <button id="dialog-cancel" type="button">Cancelar</button>
+      <button id="dialog-confirm" type="button" class="primary-button">Aceptar</button>
+    </div>
+  </dialog>
+</body>
+</html>
